@@ -42,6 +42,6 @@
   delay: 5
   until: jobstatus.json.status == 'SUCCESS'
   changed_when: false
-  when: 
+  when:
     - evs is defined
     - waitfor | bool
