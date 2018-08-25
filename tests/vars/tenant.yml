@@ -1,0 +1,8 @@
+---
+volumes:
+  ansible-evs02:
+    evs_availability_zone: "eu-de-01"
+    evs_scsi: false
+    evs_multiattach: false
+    evs_volume_type: "SATA"
+    evs_size: "10"

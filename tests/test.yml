@@ -1,5 +1,15 @@
 ---
 - hosts: localhost
-  remote_user: root
+  gather_facts: no
+  vars_files:
+   - "vars/tenant.yml"
+  vars:
+    # EVS
+    evs_availability_zone: "{{ volumes[evs_name].evs_availability_zone }}"
+    evs_volume_type: "{{ volumes[evs_name].evs_volume_type }}"
+    evs_size: "{{ volumes[evs_name].evs_size }}"
+    evs_multiattach: "{{ volumes[evs_name].evs_multiattach }}"
+    evs_scsi: "{{ volumes[evs_name].evs_scsi }}"
   roles:
-    - otc_evs
+    - role: "otc_auth"
+    - role: "otc_evs"
