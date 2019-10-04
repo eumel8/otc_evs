@@ -43,5 +43,5 @@
   until: jobstatus.json.status == 'SUCCESS'
   changed_when: false
   when:
-    - evs is defined
+    - evs.json.job_id is defined
     - waitfor | bool
