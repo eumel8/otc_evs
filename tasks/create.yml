@@ -29,7 +29,7 @@
 
 - name: Request job status from API (waiting for SUCCESS)
   uri:
-    url: "{{ AUTH_URL_ECS_CLOUD }}/{{ PROJECT_ID }}/jobs/{{ evs.json.job_id }}"
+    url: "{{ AUTH_URL_EVSv1 }}/{{ PROJECT_ID }}/jobs/{{ evs.json.job_id }}"
     method: GET
     return_content: yes
     follow_redirects: "{{ uri_follow_redirects }}"
@@ -43,5 +43,5 @@
   until: jobstatus.json.status == 'SUCCESS'
   changed_when: false
   when:
-    - evs is defined
+    - evs.json.job_id is defined
     - waitfor | bool
