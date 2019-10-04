@@ -5,4 +5,4 @@
 - name: otc_evs
   scm: git
   src: https://github.com/eumel8/otc_evs.git
-  version: dev
+  version: master
