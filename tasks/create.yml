@@ -24,7 +24,8 @@
     - evs_name is defined
     - not evs_id or evs_id is undefined
 
-- debug:
+- name: evs
+  debug:
     msg: "{{ evs }}"
 
 - name: Request job status from API (waiting for SUCCESS)

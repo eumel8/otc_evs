@@ -14,5 +14,6 @@
   until: volumeslist.status == 200
   changed_when: false
 
-- debug:
+- name: volumelist
+  debug:
     msg: "{{ volumeslist.json }}"
