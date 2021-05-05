@@ -8,7 +8,7 @@
     url: "{{ AUTH_URL_EVS }}/cloudvolumes"
     method: POST
     body_format: raw
-    return_content: yes
+    return_content: true
     follow_redirects: "{{ uri_follow_redirects }}"
     validate_certs: "{{ uri_validate_certs }}"
     headers:
@@ -24,14 +24,15 @@
     - evs_name is defined
     - not evs_id or evs_id is undefined
 
-- debug:
+- name: evs
+  debug:
     msg: "{{ evs }}"
 
 - name: Request job status from API (waiting for SUCCESS)
   uri:
     url: "{{ AUTH_URL_EVSv1 }}/{{ PROJECT_ID }}/jobs/{{ evs.json.job_id }}"
     method: GET
-    return_content: yes
+    return_content: true
     follow_redirects: "{{ uri_follow_redirects }}"
     validate_certs: "{{ uri_validate_certs }}"
     headers:
